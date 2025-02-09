@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+  background-color: #041e3a;
+  color: white;
+  transition: background-color 0.6s;
+}
+body.light {
+  background-color: #c6dcf4;
+  color: #041e3a;
+  transition: background-color 0.6s;
+}
+
+.theme-toggle {
+  padding: 10px 20px;
+  margin-top: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+body.light .theme-toggle {
+  background-color: #ffffff;
+  color: #000;
+}
+
+body.dark .theme-toggle {
+  background-color: #ffffff;
+  color: #000000;
+}
+.theme-toggle:hover {
+  opacity: 0.8;
+}

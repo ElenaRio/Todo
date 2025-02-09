@@ -1,0 +1,11 @@
+.todoListContainer {
+  padding: 10px;
+}
+.title {
+  font-family: 'Caveat', serif;
+  font-size: 34px;
+}
+.titleList {
+  font-size: 30px;
+  font-family: 'Indie Flower', 'Caveat', serif;
+}

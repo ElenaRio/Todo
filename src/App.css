@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.title {
+  font-size: 52px;
+  font-family: 'Indie Flower', 'Caveat', serif;
+  font-style: normal;
+  margin: 20px 0 40px;
+  transition: transform 0.3s;
+}
+.title:hover {
+  transform: scale(1.1);
+}
+.title-bottom {
+  font-size: 30px;
+  font-family: 'Indie Flower', 'Caveat', serif;
+}
