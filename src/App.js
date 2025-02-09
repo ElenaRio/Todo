@@ -8,35 +8,49 @@ import TodosActions from './components/Todo/TodosActions';
 function App() {
   const [todos, setTodos] = useState([]);
 
+  useEffect(() => {
+    const storedTodos = JSON.parse(localStorage.getItem('todos'));
+    if (storedTodos) {
+      setTodos(storedTodos);
+    }
+  }, []);
+
   const addTodoHandler = (text) => {
     const newTodo = {
       text: text,
       isCompleted: false,
       id: uuidv4(),
     };
-    setTodos([...todos, newTodo]);
+    const updatedTodos = [...todos, newTodo];
+    setTodos(updatedTodos);
+    localStorage.setItem('todos', JSON.stringify(updatedTodos)); 
   };
   const deleteTodoHandler = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(updatedTodos);
+    localStorage.setItem('todos', JSON.stringify(updatedTodos));
   };
 
   const toggleTodoHandler = (id) => {
-    setTodos(
-      todos.map((todo) => {
-        return todo.id === id
-          ? { ...todo, isCompleted: !todo.isCompleted }
-          : { ...todo };
-      })
-    );
+    const updatedTodos = todos.map((todo) => {
+      return todo.id === id
+        ? { ...todo, isCompleted: !todo.isCompleted }
+        : { ...todo };
+    });
+    setTodos(updatedTodos);
+    localStorage.setItem('todos', JSON.stringify(updatedTodos));
   };
 
   const resetTodosHandler = () => {
     setTodos([]);
+    localStorage.setItem('todos', JSON.stringify([])); 
   };
 
   const deletCompletedTodosHandler = () => {
-    setTodos(todos.filter((todo) => !todo.isCompleted));
-  };
+    const updatedTodos = todos.filter((todo) => !todo.isCompleted);
+    setTodos(updatedTodos);
+    localStorage.setItem('todos', JSON.stringify(updatedTodos));
+  }
 
   const completedTodosCount = todos.filter((todo) => todo.isCompleted).length;
 
